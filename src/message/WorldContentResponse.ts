@@ -1,8 +1,8 @@
-import { Message, BaseNode } from "..";
+import { Message, WorldNode } from "..";
 
 export class WorldContentResponse extends Message {
 
-    constructor(public worldNode?: BaseNode) {
+    constructor(public worldNode: WorldNode) {
         super();
     }
     

@@ -26,12 +26,9 @@ __export(require("./message/WheelCommand"));
 __export(require("./message/WorldContentResponse"));
 __export(require("./message/WorldContentRequest"));
 __export(require("./world/WorldElement"));
-__export(require("./world/Geometry"));
-__export(require("./world/BoxGeometry"));
-__export(require("./world/ColladaGeometry"));
-__export(require("./world/GridConfiguration"));
-__export(require("./world/GridGeometry"));
 __export(require("./world/Material"));
 __export(require("./world/NodeTransformation3D"));
-__export(require("./world/BaseNode"));
+__export(require("./world/GridConfiguration"));
+__export(require("./world/WorldNode"));
+__export(require("./world/RobotNode"));
 //# sourceMappingURL=index.js.map

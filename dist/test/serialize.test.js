@@ -20,17 +20,19 @@ describe('Serialization and Deserialization', () => {
         chai_1.assert.equal(jsonText, '{"$name":"OrientationRequest","targetAngle":{"$name":"Angle","radians":1.23},"timeout":1234}');
         chai_1.assert.equal(jsonText2, '{"$name":"OrientationRequest","targetAngle":{"$name":"Angle","radians":1.23},"timeout":1234}');
         // Deserialize:
-        var orientationRequest = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
-        chai_1.assert.equal(orientationRequest.$name, "OrientationRequest");
-        chai_1.assert.equal(orientationRequest.timeout, 1234);
+        var orientationRequest2 = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
+        chai_1.assert.equal(orientationRequest2.$name, "OrientationRequest");
+        chai_1.assert.equal(orientationRequest2.timeout, 1234);
         var expectedAngle = new common.Angle();
         expectedAngle.radians = 1.23;
-        if (orientationRequest.targetAngle != undefined) {
-            chai_1.assert.equal(orientationRequest.targetAngle.toString(), expectedAngle.toString());
+        if (orientationRequest2.targetAngle != undefined) {
+            chai_1.assert.equal(orientationRequest2.targetAngle.radians, expectedAngle.radians);
         }
         else {
             chai_1.assert.fail();
         }
+        var jsonText3 = common.SerializationUtils.jsonStringify(orientationRequest);
+        chai_1.assert.equal(jsonText3, jsonText);
     });
     function testSerializeDeserialize(obj) {
         var jsonText = common.SerializationUtils.jsonStringify(obj);
@@ -57,15 +59,11 @@ describe('Serialization and Deserialization', () => {
     });
     it("Make sure that all WorldElement are serializable", function () {
         testSerializeDeserialize(new common.WorldElement());
-        testSerializeDeserialize(new common.Geometry());
-        testSerializeDeserialize(new common.BoxGeometry(new common.Dimension3D(1, 2, 3), new common.Material()));
-        testSerializeDeserialize(new common.ColladaGeometry("myfile.txt"));
+        var gridConfig = new common.GridConfiguration(10, 12, 50, 2, new common.Vector3D(0, 1, -1));
+        var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
+        testSerializeDeserialize(new common.WorldNode(gridConfig, robotNode));
         testSerializeDeserialize(new common.GridConfiguration(10, 12, 50, 2, new common.Vector3D(0, 1, -1)));
-        testSerializeDeserialize(new common.GridGeometry(new common.GridConfiguration(10, 12, 50, 2, new common.Vector3D(0, 1, -1))));
         testSerializeDeserialize(new common.Material());
-    });
-    it("Make sure that BaseNode is serializable", function () {
-        testSerializeDeserialize(new common.BaseNode("baseNode", undefined, new common.ColladaGeometry("filename.txt"), new common.NodeTransformation3D(), true));
     });
     it("Test not serializable ($name is missing)", function () {
         class SampleOfBadClass {
@@ -81,24 +79,6 @@ describe('Serialization and Deserialization', () => {
     it("Test enums", function () {
         testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Stop));
         testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Left));
-    });
-    it("World content", function () {
-        var worldNode = new common.BaseNode("worldNode");
-        var gridNode = new common.BaseNode("gridNode", worldNode);
-        var gridCellCountX = 100;
-        var gridCellCountY = 100;
-        var gridCellSizeMm = 100;
-        var gridMaxObstacleCount = 10;
-        var gridOffsetVector = new common.Vector3D(gridCellCountX * gridCellSizeMm / 2, gridCellCountY * gridCellSizeMm / 2, 0);
-        var gridConfiguration = new common.GridConfiguration(gridCellCountX, gridCellCountY, gridCellSizeMm, gridMaxObstacleCount, gridOffsetVector);
-        gridNode.geometry = new common.GridGeometry(gridConfiguration);
-        var robotNode = new common.BaseNode("robotNode", gridNode);
-        var robotModel = "model/AkiBot.dae";
-        robotNode.geometry = new common.ColladaGeometry(robotModel);
-        var gyroscopeNode = new common.BaseNode("gyroscopeNode", gridNode);
-        gyroscopeNode.stickToParent = true;
-        var distanceCenterNode = new common.BaseNode("distanceCenterNode", robotNode);
-        testSerializeDeserialize(worldNode);
     });
 });
 //# sourceMappingURL=serialize.test.js.map

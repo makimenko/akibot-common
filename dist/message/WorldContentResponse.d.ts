@@ -1,5 +1,5 @@
-import { Message, BaseNode } from "..";
+import { Message, WorldNode } from "..";
 export declare class WorldContentResponse extends Message {
-    worldNode: BaseNode | undefined;
-    constructor(worldNode?: BaseNode | undefined);
+    worldNode: WorldNode;
+    constructor(worldNode: WorldNode);
 }
