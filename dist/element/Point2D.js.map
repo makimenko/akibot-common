@@ -1,0 +1,1 @@
+{"version":3,"file":"Point2D.js","sourceRoot":"","sources":["../../src/element/Point2D.ts"],"names":[],"mappings":";;AAAA,0BAAiC;AAEjC,aAAqB,SAAQ,eAAW;IAEpC,YAAmB,CAAS,EAAE,CAAS;QACnC,KAAK,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IAChB,CAAC;IAEM,QAAQ;QACX,MAAM,CAAC,SAAS,GAAG,KAAK,CAAC,QAAQ,EAAE,CAAC;IACxC,CAAC;CAEJ;AAVD,0BAUC"}

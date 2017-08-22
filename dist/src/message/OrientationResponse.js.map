@@ -1,0 +1,1 @@
+{"version":3,"file":"OrientationResponse.js","sourceRoot":"","sources":["../../../src/message/OrientationResponse.ts"],"names":[],"mappings":";;AAAA,0BAAmC;AAEnC,yBAAiC,SAAQ,WAAO;IAC5C,YAAmB,OAAiB,EAAU,UAAkB;QAC5D,KAAK,EAAE,CAAC;QADO,YAAO,GAAP,OAAO,CAAU;QAAU,eAAU,GAAV,UAAU,CAAQ;IAEhE,CAAC;CAEJ;AALD,kDAKC"}
