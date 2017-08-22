@@ -1,5 +1,5 @@
 # AkiBot Common
-Common cmponents used in:<br>
+Common components used in:<br>
 https://github.com/makimenko/akibot-server.git<br>
 https://github.com/makimenko/akibot-ui.git
 
