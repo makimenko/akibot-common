@@ -24,16 +24,18 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText2, '{"$name":"OrientationRequest","targetAngle":{"$name":"Angle","radians":1.23},"timeout":1234}');
 
     // Deserialize:
-    var orientationRequest: common.OrientationRequest = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
-    assert.equal(orientationRequest.$name, "OrientationRequest");
-    assert.equal(orientationRequest.timeout, 1234);
+    var orientationRequest2: common.OrientationRequest = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
+    assert.equal(orientationRequest2.$name, "OrientationRequest");
+    assert.equal(orientationRequest2.timeout, 1234);
     var expectedAngle: common.Angle = new common.Angle();
     expectedAngle.radians = 1.23;
-    if (orientationRequest.targetAngle != undefined) {
-      assert.equal(orientationRequest.targetAngle.toString(), expectedAngle.toString());
+    if (orientationRequest2.targetAngle != undefined) {
+      assert.equal(orientationRequest2.targetAngle.radians, expectedAngle.radians);
     } else {
       assert.fail();
     }
+    var jsonText3: string = common.SerializationUtils.jsonStringify(orientationRequest);
+    assert.equal(jsonText3, jsonText);
   });
 
   function testSerializeDeserialize(obj: any): void {
