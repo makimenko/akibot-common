@@ -3,7 +3,7 @@ import * as common from "..";
 
 describe('Serialization and Deserialization', () => {
 
-  
+
   function testSerializeDeserialize(obj: any): void {
     var jsonText: string = common.SerializationUtils.jsonStringify(obj);
     var resultMessage: common.Message = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
@@ -13,7 +13,7 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText, jsonTextAfter);
   }
 
-  
+
   it("Deserialize simple Message", function () {
     var jsonString: string = '{"$name":"Message"  }';
     var json = common.SerializationUtils.jsonParse(jsonString);
@@ -65,8 +65,8 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.GyroscopeValueResponse(common.AngleUtils.createAngleFromDegrees(7)));
     testSerializeDeserialize(new common.OrientationRequest(common.AngleUtils.createAngleFromDegrees(55), common.AngleUtils.createAngleFromDegrees(10), 123));
     testSerializeDeserialize(new common.OrientationResponse(true, common.AngleUtils.createAngleFromDegrees(78)));
+    testSerializeDeserialize(new common.RobotTransformationEvent(new common.NodeTransformation3D(new common.Vector3D(1, 2, 3), new common.Vector3D(4, 5, 6), new common.Vector3D(7, 8, 9))));
   });
-
 
   it("Test not serializable ($name is missing)", function () {
     class SampleOfBadClass { kuku: string; }
@@ -83,7 +83,6 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Left));
   });
 
-
   it("Serialize Array", function () {
     var data = [1, 2];
     var jsonText: string = common.SerializationUtils.jsonStringify(data);
@@ -93,7 +92,6 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText2, expected, "Compare JSON native");
   });
 
-
   it("Serialize Multi-Array", function () {
     var data = [[1, 2], [3, 4]];
     var jsonText: string = common.SerializationUtils.jsonStringify(data);
@@ -102,10 +100,6 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText, expected, "Compare SerializationUtils");
     assert.equal(jsonText2, expected, "Compare JSON native");
   });
-
-
-
-  
 
   it("Serialize Grid", function () {
     // Serialize:
@@ -120,9 +114,6 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText2, expected, "Compare native JSON");
   });
 
-
-
-  
   it("Make sure that all WorldElement are serializable", function () {
     testSerializeDeserialize(new common.WorldElement());
     var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
@@ -134,6 +125,5 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1)));
     testSerializeDeserialize(new common.Material());
   });
-
 
 });

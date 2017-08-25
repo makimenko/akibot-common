@@ -24,6 +24,7 @@ export * from './message/GyroscopeValueResponse';
 export * from './message/WheelCommand';
 export * from './message/WorldContentResponse';
 export * from './message/WorldContentRequest';
+export * from './message/RobotTransformationEvent';
 
 export * from './world/WorldElement';
 export * from './world/Material';

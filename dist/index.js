@@ -26,6 +26,7 @@ __export(require("./message/GyroscopeValueResponse"));
 __export(require("./message/WheelCommand"));
 __export(require("./message/WorldContentResponse"));
 __export(require("./message/WorldContentRequest"));
+__export(require("./message/RobotTransformationEvent"));
 __export(require("./world/WorldElement"));
 __export(require("./world/Material"));
 __export(require("./world/NodeTransformation3D"));
