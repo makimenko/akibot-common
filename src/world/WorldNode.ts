@@ -1,8 +1,8 @@
-import { WorldElement,  GridConfiguration, RobotNode } from "..";
+import { WorldElement, GridConfiguration, RobotNode, GridNode } from "..";
 
 export class WorldNode extends WorldElement {
 
-    constructor(public gridConfiguration: GridConfiguration, public robotNode: RobotNode) {
+    constructor(public gridNode: GridNode, public robotNode: RobotNode) {
         super();
     }
 
