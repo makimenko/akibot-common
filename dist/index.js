@@ -17,6 +17,7 @@ __export(require("./element/Line3D"));
 __export(require("./utils/AngleUtils"));
 __export(require("./utils/VectorUtils"));
 __export(require("./utils/SerializationUtils"));
+__export(require("./utils/GridUtils"));
 __export(require("./message/Message"));
 __export(require("./message/OrientationRequest"));
 __export(require("./message/OrientationResponse"));
@@ -29,6 +30,7 @@ __export(require("./world/WorldElement"));
 __export(require("./world/Material"));
 __export(require("./world/NodeTransformation3D"));
 __export(require("./world/GridConfiguration"));
+__export(require("./world/GridNode"));
 __export(require("./world/WorldNode"));
 __export(require("./world/RobotNode"));
 //# sourceMappingURL=index.js.map

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("..");
 class WorldNode extends __1.WorldElement {
-    constructor(gridConfiguration, robotNode) {
+    constructor(gridNode, robotNode) {
         super();
-        this.gridConfiguration = gridConfiguration;
+        this.gridNode = gridNode;
         this.robotNode = robotNode;
     }
 }

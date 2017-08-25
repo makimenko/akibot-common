@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "description": "Very simple logger utility",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "mocha --recursive -r ts-node/register ./src/test/**/*.test.ts"
   },

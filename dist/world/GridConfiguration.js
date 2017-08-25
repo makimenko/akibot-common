@@ -2,10 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const __1 = require("..");
 class GridConfiguration extends __1.WorldElement {
-    constructor(cellCountX, cellCountY, cellSizeMm, maxObstacleCount, offsetVector) {
+    constructor(cellCount, cellSizeMm, maxObstacleCount, offsetVector) {
         super();
-        this.cellCountX = cellCountX;
-        this.cellCountY = cellCountY;
+        this.cellCount = cellCount;
         this.cellSizeMm = cellSizeMm;
         this.maxObstacleCount = maxObstacleCount;
         this.offsetVector = offsetVector;

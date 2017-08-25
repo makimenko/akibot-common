@@ -59,10 +59,11 @@ describe('Serialization and Deserialization', () => {
     });
     it("Make sure that all WorldElement are serializable", function () {
         testSerializeDeserialize(new common.WorldElement());
-        var gridConfig = new common.GridConfiguration(10, 12, 50, 2, new common.Vector3D(0, 1, -1));
+        var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
+        var gridNode = new common.GridNode(gridConfig);
         var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
-        testSerializeDeserialize(new common.WorldNode(gridConfig, robotNode));
-        testSerializeDeserialize(new common.GridConfiguration(10, 12, 50, 2, new common.Vector3D(0, 1, -1)));
+        testSerializeDeserialize(new common.WorldNode(gridNode, robotNode));
+        testSerializeDeserialize(new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1)));
         testSerializeDeserialize(new common.Material());
     });
     it("Test not serializable ($name is missing)", function () {
