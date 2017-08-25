@@ -3,6 +3,17 @@ import * as common from "..";
 
 describe('Serialization and Deserialization', () => {
 
+  
+  function testSerializeDeserialize(obj: any): void {
+    var jsonText: string = common.SerializationUtils.jsonStringify(obj);
+    var resultMessage: common.Message = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
+    var jsonTextAfter: string = common.SerializationUtils.jsonStringify(resultMessage);
+    //console.log(jsonText);
+    //console.log(jsonTextAfter);
+    assert.equal(jsonText, jsonTextAfter);
+  }
+
+  
   it("Deserialize simple Message", function () {
     var jsonString: string = '{"$name":"Message"  }';
     var json = common.SerializationUtils.jsonParse(jsonString);
@@ -38,14 +49,6 @@ describe('Serialization and Deserialization', () => {
     assert.equal(jsonText3, jsonText);
   });
 
-  function testSerializeDeserialize(obj: any): void {
-    var jsonText: string = common.SerializationUtils.jsonStringify(obj);
-    var resultMessage: common.Message = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
-    var jsonTextAfter: string = common.SerializationUtils.jsonStringify(resultMessage);
-    //console.log(jsonText);
-    //console.log(jsonTextAfter);
-    assert.equal(jsonText, jsonTextAfter);
-  }
 
   it("Make sure that all Elements are serializable", function () {
     testSerializeDeserialize(new common.Element());
@@ -64,16 +67,6 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.OrientationResponse(true, common.AngleUtils.createAngleFromDegrees(78)));
   });
 
-  it("Make sure that all WorldElement are serializable", function () {
-    testSerializeDeserialize(new common.WorldElement());
-    var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
-    var gridNode = new common.GridNode(gridConfig);
-    var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
-    testSerializeDeserialize(new common.WorldNode(gridNode, robotNode));
-   
-    testSerializeDeserialize(new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1)));
-    testSerializeDeserialize(new common.Material());
-  });
 
   it("Test not serializable ($name is missing)", function () {
     class SampleOfBadClass { kuku: string; }
@@ -88,6 +81,58 @@ describe('Serialization and Deserialization', () => {
   it("Test enums", function () {
     testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Stop));
     testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Left));
+  });
+
+
+  it("Serialize Array", function () {
+    var data = [1, 2];
+    var jsonText: string = common.SerializationUtils.jsonStringify(data);
+    var jsonText2: string = JSON.stringify(data);
+    var expected: string = '[1,2]';
+    assert.equal(jsonText, expected, "Compare SerializationUtils");
+    assert.equal(jsonText2, expected, "Compare JSON native");
+  });
+
+
+  it("Serialize Multi-Array", function () {
+    var data = [[1, 2], [3, 4]];
+    var jsonText: string = common.SerializationUtils.jsonStringify(data);
+    var jsonText2: string = JSON.stringify(data);
+    var expected: string = '[[1,2],[3,4]]';
+    assert.equal(jsonText, expected, "Compare SerializationUtils");
+    assert.equal(jsonText2, expected, "Compare JSON native");
+  });
+
+
+
+  
+
+  it("Serialize Grid", function () {
+    // Serialize:
+    var gridConfig = new common.GridConfiguration(2, 10, 1, new common.Vector3D(0, 0, 0));
+    var gridNode = new common.GridNode(gridConfig);
+    gridNode.data = common.GridUtils.createGridData(gridConfig.cellCount, gridConfig.unknownValue);
+
+    var jsonText: string = common.SerializationUtils.jsonStringify(gridNode);
+    var jsonText2: string = JSON.stringify(gridNode);
+    var expected: string = '{"$name":"GridNode","gridConfiguration":{"$name":"GridConfiguration","cellCount":2,"cellSizeMm":10,"maxObstacleCount":1,"offsetVector":{"$name":"Vector3D","x":0,"y":0,"z":0},"unknownValue":-1,"emptyValue":0},"data":[[-1,-1],[-1,-1]]}';
+    assert.equal(jsonText, expected, "Compare SerializationUtils");
+    assert.equal(jsonText2, expected, "Compare native JSON");
+  });
+
+
+
+  
+  it("Make sure that all WorldElement are serializable", function () {
+    testSerializeDeserialize(new common.WorldElement());
+    var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
+    var gridNode = new common.GridNode(gridConfig);
+    gridNode.data = common.GridUtils.createGridData(2, gridConfig.unknownValue);
+    var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
+    testSerializeDeserialize(new common.WorldNode(gridNode, robotNode));
+
+    testSerializeDeserialize(new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1)));
+    testSerializeDeserialize(new common.Material());
   });
 
 
