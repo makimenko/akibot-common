@@ -30,10 +30,9 @@ var VectorUtils;
     }
     VectorUtils.rotateLine2D = rotateLine2D;
     function getNorthAngle(vector3d, offsetNorthAngle) {
-        // offsetNorthAngle = Angle(AngleUtils.degreesToRadians(-90))
         var radians = Math.atan2(vector3d.y, vector3d.x);
         var angle = new __1.Angle();
-        angle.radians = 0;
+        angle.radians = radians;
         angle.add(offsetNorthAngle);
         return angle;
     }

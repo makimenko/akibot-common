@@ -32,10 +32,9 @@ export module VectorUtils {
     }
 
     export function getNorthAngle(vector3d: Vector3D, offsetNorthAngle: Angle): Angle {
-        // offsetNorthAngle = Angle(AngleUtils.degreesToRadians(-90))
         var radians: number = Math.atan2(vector3d.y, vector3d.x);
         var angle = new Angle();
-        angle.radians = 0;
+        angle.radians = radians;
         angle.add(offsetNorthAngle);
         return angle;
     }
