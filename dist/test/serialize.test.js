@@ -46,7 +46,7 @@ describe('Serialization and Deserialization', () => {
         testSerializeDeserialize(new common.Element());
         testSerializeDeserialize(new common.Dimension2D(1, 2));
         testSerializeDeserialize(new common.Dimension3D(1, 2, 3));
-        testSerializeDeserialize(new common.Distance(100.22));
+        testSerializeDeserialize(new common.Distance(100.9991, new common.Angle(0.1), true));
         testSerializeDeserialize(new common.Line2D(new common.Point2D(1, 2), new common.Point2D(3, 4)));
         testSerializeDeserialize(new common.Line3D(new common.Point3D(1, 2, 3), new common.Point3D(4, 5, 6)));
     });
@@ -58,7 +58,7 @@ describe('Serialization and Deserialization', () => {
         testSerializeDeserialize(new common.OrientationResponse(true, common.AngleUtils.createAngleFromDegrees(78)));
         testSerializeDeserialize(new common.RobotTransformationEvent(new common.NodeTransformation3D(new common.Vector3D(1, 2, 3), new common.Vector3D(4, 5, 6), new common.Vector3D(7, 8, 9))));
         testSerializeDeserialize(new common.DistanceAutoIntervalCommand(1000));
-        testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100)));
+        testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100, new common.Angle(1), false)));
     });
     it("Test not serializable ($name is missing)", function () {
         class SampleOfBadClass {
