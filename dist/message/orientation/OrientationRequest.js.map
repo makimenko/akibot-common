@@ -1,0 +1,1 @@
+{"version":3,"file":"OrientationRequest.js","sourceRoot":"","sources":["../../../src/message/orientation/OrientationRequest.ts"],"names":[],"mappings":";;AAAA,6BAAuC;AAEvC,wBAAgC,SAAQ,WAAO;IAE3C,YAAmB,WAAmB,EAAS,SAAiB,EAAS,OAAgB;QACrF,KAAK,EAAE,CAAC;QADO,gBAAW,GAAX,WAAW,CAAQ;QAAS,cAAS,GAAT,SAAS,CAAQ;QAAS,YAAO,GAAP,OAAO,CAAS;IAEzF,CAAC;CAEJ;AAND,gDAMC"}

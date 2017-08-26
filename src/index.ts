@@ -17,14 +17,16 @@ export * from './utils/SerializationUtils';
 export * from './utils/GridUtils';
 
 export * from './message/Message';
-export * from './message/OrientationRequest';
-export * from './message/OrientationResponse';
-export * from './message/GyroscopeAutoIntervalCommand';
-export * from './message/GyroscopeValueResponse';
-export * from './message/WheelCommand';
-export * from './message/WorldContentResponse';
-export * from './message/WorldContentRequest';
-export * from './message/RobotTransformationEvent';
+export * from './message/orientation/OrientationRequest';
+export * from './message/orientation/OrientationResponse';
+export * from './message/gyroscope/GyroscopeAutoIntervalCommand';
+export * from './message/gyroscope/GyroscopeValueResponse';
+export * from './message/wheel/WheelCommand';
+export * from './message/world/WorldContentResponse';
+export * from './message/world/WorldContentRequest';
+export * from './message/robot/RobotTransformationEvent';
+export * from './message/distance/DistanceAutoIntervalCommand';
+export * from './message/distance/DistanceValueResponse';
 
 export * from './world/WorldElement';
 export * from './world/Material';

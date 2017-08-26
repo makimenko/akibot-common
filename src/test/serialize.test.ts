@@ -66,6 +66,8 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.OrientationRequest(common.AngleUtils.createAngleFromDegrees(55), common.AngleUtils.createAngleFromDegrees(10), 123));
     testSerializeDeserialize(new common.OrientationResponse(true, common.AngleUtils.createAngleFromDegrees(78)));
     testSerializeDeserialize(new common.RobotTransformationEvent(new common.NodeTransformation3D(new common.Vector3D(1, 2, 3), new common.Vector3D(4, 5, 6), new common.Vector3D(7, 8, 9))));
+    testSerializeDeserialize(new common.DistanceAutoIntervalCommand(1000));
+    testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100)));
   });
 
   it("Test not serializable ($name is missing)", function () {

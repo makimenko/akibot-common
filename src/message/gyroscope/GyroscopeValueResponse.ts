@@ -1,8 +1,8 @@
-import { Message, Angle } from "..";
+import { Message, Angle } from "../..";
 
 export class GyroscopeValueResponse extends Message {
 
-    constructor(public angle?: Angle) {
+    constructor(public angle: Angle) {
         super();
     }
 

@@ -1,4 +1,4 @@
-import { Message, Angle } from "..";
+import { Message, Angle } from "../..";
 
 export class OrientationRequest extends Message {
 

@@ -1,4 +1,4 @@
-import { Message, WorldNode } from "..";
+import { Message, WorldNode } from "../..";
 
 export class WorldContentResponse extends Message {
 

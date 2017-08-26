@@ -1,0 +1,1 @@
+{"version":3,"file":"GyroscopeValueResponse.js","sourceRoot":"","sources":["../../../src/message/distance/GyroscopeValueResponse.ts"],"names":[],"mappings":";;AAAA,6BAAiD;AAEjD,4BAAoC,SAAQ,WAAO;IAE/C,YAAmB,QAAkB;QACjC,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAU;IAErC,CAAC;CAEJ;AAND,wDAMC"}

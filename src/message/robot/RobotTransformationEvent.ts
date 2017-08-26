@@ -1,4 +1,4 @@
-import { Message, NodeTransformation3D } from "..";
+import { Message, NodeTransformation3D } from "../..";
 
 export class RobotTransformationEvent extends Message {
 
