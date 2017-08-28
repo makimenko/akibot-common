@@ -1,5 +1,5 @@
-import { Message, Angle } from "../..";
-export declare class GyroscopeValueResponse extends Message {
+import { Angle, ValueResponse } from "../..";
+export declare class GyroscopeValueResponse extends ValueResponse {
     angle: Angle;
     constructor(angle: Angle);
 }

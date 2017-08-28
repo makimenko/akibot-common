@@ -1,1 +1,1 @@
-{"version":3,"file":"GyroscopeValueResponse.js","sourceRoot":"","sources":["../../../src/message/gyroscope/GyroscopeValueResponse.ts"],"names":[],"mappings":";;AAAA,6BAAuC;AAEvC,4BAAoC,SAAQ,WAAO;IAE/C,YAAmB,KAAY;QAC3B,KAAK,EAAE,CAAC;QADO,UAAK,GAAL,KAAK,CAAO;IAE/B,CAAC;CAEJ;AAND,wDAMC"}
+{"version":3,"file":"GyroscopeValueResponse.js","sourceRoot":"","sources":["../../../src/message/gyroscope/GyroscopeValueResponse.ts"],"names":[],"mappings":";;AAAA,6BAAsD;AAEtD,4BAAoC,SAAQ,iBAAa;IAErD,YAAmB,KAAY;QAC3B,KAAK,EAAE,CAAC;QADO,UAAK,GAAL,KAAK,CAAO;IAE/B,CAAC;CAEJ;AAND,wDAMC"}

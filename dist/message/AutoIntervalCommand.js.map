@@ -1,1 +1,1 @@
-{"version":3,"file":"AutoIntervalCommand.js","sourceRoot":"","sources":["../../src/message/AutoIntervalCommand.ts"],"names":[],"mappings":";;AAAA,0BAA6B;AAE7B,yBAAiC,SAAQ,WAAO;IAE5C,YAAmB,QAAgB;QAC/B,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAQ;IAEnC,CAAC;CAEJ;AAND,kDAMC"}
+{"version":3,"file":"AutoIntervalCommand.js","sourceRoot":"","sources":["../../src/message/AutoIntervalCommand.ts"],"names":[],"mappings":";;AAAA,0BAAsC;AAEtC,yBAAiC,SAAQ,WAAO;IAE5C,YAAmB,QAAgB;QAC/B,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAQ;IAEnC,CAAC;CAEJ;AAND,kDAMC"}

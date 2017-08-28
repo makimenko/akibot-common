@@ -1,1 +1,1 @@
-{"version":3,"file":"DistanceValueResponse.js","sourceRoot":"","sources":["../../../src/message/distance/DistanceValueResponse.ts"],"names":[],"mappings":";;AAAA,6BAAiD;AAEjD,2BAAmC,SAAQ,WAAO;IAE9C,YAAmB,QAAkB;QACjC,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAU;IAErC,CAAC;CAEJ;AAND,sDAMC"}
+{"version":3,"file":"DistanceValueResponse.js","sourceRoot":"","sources":["../../../src/message/distance/DistanceValueResponse.ts"],"names":[],"mappings":";;AAAA,6BAAgE;AAEhE,2BAAmC,SAAQ,iBAAa;IAEpD,YAAmB,QAAkB;QACjC,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAU;IAErC,CAAC;CAEJ;AAND,sDAMC"}

@@ -1,6 +1,6 @@
-import { Message, Angle, Distance } from "../..";
+import { Message, Angle, Distance, ValueResponse } from "../..";
 
-export class DistanceValueResponse extends Message {
+export class DistanceValueResponse extends ValueResponse {
 
     constructor(public distance: Distance) {
         super();
