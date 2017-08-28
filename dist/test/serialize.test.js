@@ -21,8 +21,7 @@ describe('Serialization and Deserialization', () => {
         // Serialize:
         var orientationRequest = new common.OrientationRequest();
         orientationRequest.timeout = 1234;
-        orientationRequest.targetAngle = new common.Angle();
-        orientationRequest.targetAngle.radians = 1.23;
+        orientationRequest.targetAngle = new common.Angle(1.23);
         var jsonText = common.SerializationUtils.jsonStringify(orientationRequest);
         var jsonText2 = JSON.stringify(orientationRequest); // intentionally use direct JSON here
         chai_1.assert.equal(jsonText, '{"$name":"OrientationRequest","targetAngle":{"$name":"Angle","radians":1.23},"timeout":1234}');
@@ -31,8 +30,7 @@ describe('Serialization and Deserialization', () => {
         var orientationRequest2 = common.SerializationUtils.deserialize(common.SerializationUtils.jsonParse(jsonText), common);
         chai_1.assert.equal(orientationRequest2.$name, "OrientationRequest");
         chai_1.assert.equal(orientationRequest2.timeout, 1234);
-        var expectedAngle = new common.Angle();
-        expectedAngle.radians = 1.23;
+        var expectedAngle = new common.Angle(1.23);
         if (orientationRequest2.targetAngle != undefined) {
             chai_1.assert.equal(orientationRequest2.targetAngle.radians, expectedAngle.radians);
         }

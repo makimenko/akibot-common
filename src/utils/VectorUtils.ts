@@ -33,60 +33,27 @@ export module VectorUtils {
 
     export function getNorthAngle(vector3d: Vector3D, offsetNorthAngle: Angle): Angle {
         var radians: number = Math.atan2(vector3d.y, vector3d.x);
-        var angle = new Angle();
-        angle.radians = radians;
+        var angle = new Angle(radians);
         angle.add(offsetNorthAngle);
         return angle;
     }
 
-    export function calculateRelativeTransformation(gridNode: GridNode, robotNode: RobotNode, deviceNode: DeviceNode): NodeTransformation3D {
-        if (gridNode == undefined || robotNode == undefined || deviceNode == undefined) {
-            throw "Undefined nodes found"
+    export function calculateRelativeTransformation(transA: NodeTransformation3D, transB: NodeTransformation3D): NodeTransformation3D {
+        if (transA == undefined || transB == undefined) {
+            throw "undefined parameters";
         }
-        if (robotNode.transformation == undefined) {
-
+        var cumulativeTransformation = transA.clone();
+        var posVector: Vector3D = transB.position;
+        if (transA.rotation.z != 0) {
+            var angle: Angle = new Angle(transA.rotation.z);
+            var rotatedVector = VectorUtils.rotate2DVector(posVector, angle);
+            posVector.x = rotatedVector.x;
+            posVector.y = rotatedVector.y;
+            // z axis not supported
         }
-        var cumulativeTransformation: NodeTransformation3D = (robotNode.transformation == undefined ? new NodeTransformation3D() : robotNode.transformation);
-
-        if (cumulativeTransformation.position==undefined ) {
-
-        }
-        cumulativeTransformation.position.add(deviceNode.transformation.position)
-
-
-
-        if (nodeB.getTransformation() != null) {
-            Point posVector = nodeB.getTransformation().getPosition();
-            if (cumulativeTransformation.getRotation().getZ() != 0) {
-                Angle angle = new Angle(cumulativeTransformation.getRotation().getZ());
-                posVector = VectorUtils.rotate2DVector(posVector, angle);
-            }
-            cumulativeTransformation.getPosition().add(posVector);
-            cumulativeTransformation.getRotation().add(nodeB.getTransformation().getRotation());
-        }
-
+        cumulativeTransformation.position.add(posVector);
+        cumulativeTransformation.rotation.add(transB.rotation);
         return cumulativeTransformation;
     }
-
-    /*
-        export function updateGridDistance(gridNode: Node, distanceNode: Node, distance: Distance) {
-            NodeTransformation relativeTransformation = VectorUtils.calculateRelativeTransformation(gridNode, distanceNode);
-    
-            GridGeometry gridGeometry = (GridGeometry) gridNode.getGeometry();
-    
-            double angle = relativeTransformation.getRotation().getZ();
-            angle += distanceDetails.getNorthAngle().getRadians();
-            Angle relativeAngle = new Angle(angle);
-    
-            DistanceDetails relativeDistanceDetail = new DistanceDetails();
-            relativeDistanceDetail.setDistanceMm(distanceDetails.getDistanceMm());
-            relativeDistanceDetail.setEndObstacle(distanceDetails.isEndObstacle());
-            relativeDistanceDetail.setErrorAngle(distanceDetails.getErrorAngle());
-            relativeDistanceDetail.setNorthAngle(relativeAngle);
-            relativeDistanceDetail.setPositionOffset(relativeTransformation.getPosition());
-    
-            gridGeometry.addDistance(relativeDistanceDetail);
-        }
-    */
 
 }

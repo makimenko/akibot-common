@@ -2,7 +2,7 @@ import { Serializable, AngleUtils, Element } from "../index";
 
 export class Angle extends Element {
 
-    constructor(public radians?: number) {
+    constructor(public radians: number) {
         super();
     }
 

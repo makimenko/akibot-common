@@ -39,4 +39,5 @@ __export(require("./world/GridConfiguration"));
 __export(require("./world/GridNode"));
 __export(require("./world/WorldNode"));
 __export(require("./world/RobotNode"));
+__export(require("./world/DeviceNode"));
 //# sourceMappingURL=index.js.map

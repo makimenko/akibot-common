@@ -1,6 +1,7 @@
-import { WorldElement, NodeTransformation3D } from "..";
+import { WorldElement, NodeTransformation3D, DeviceNode } from "..";
 export declare class RobotNode extends WorldElement {
     modelFileName: string;
-    transformation: NodeTransformation3D | undefined;
-    constructor(modelFileName: string, transformation?: NodeTransformation3D | undefined);
+    transformation: NodeTransformation3D;
+    devices: DeviceNode[];
+    constructor(modelFileName: string, transformation: NodeTransformation3D);
 }

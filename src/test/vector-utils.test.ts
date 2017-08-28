@@ -56,4 +56,49 @@ describe('Vector Utils', () => {
     assert.isTrue(resultPoint2D.y < 0);
   });
 
+  it("calculateRelativeTransformation", function () {
+
+    var COORD_PRECISSION = 0.01;
+    var ROTATION_PRECISSION = 0.0000001;    
+
+    var gridConfiguration = new common.GridConfiguration(1, 1, 1, new common.Vector3D(0, 0, 0));
+    var gridNode = new common.GridNode(gridConfiguration);
+    var robotTransformation = new common.NodeTransformation3D();
+    robotTransformation.position = new common.Vector3D(3, 2, 0);
+    robotTransformation.rotation = new common.Vector3D(0, 0, common.AngleUtils.degreesToRadians(45));
+    var robotNode = new common.RobotNode("filename", robotTransformation);
+    var worldNode = new common.WorldNode(gridNode, robotNode);
+
+    var distanceTransformation = new common.NodeTransformation3D();
+    distanceTransformation.position = new common.Vector3D(0, 2, 0);
+    distanceTransformation.rotation = new common.Vector3D(0, 0, common.AngleUtils.degreesToRadians(5));
+    var distanceNode = new common.DeviceNode(distanceTransformation);
+
+    robotNode.devices.push(distanceNode);
+
+
+    var relative = common.VectorUtils.calculateRelativeTransformation(robotNode.transformation, distanceNode.transformation);
+
+    // Make sure that original transformation was not changed:
+    assert.equal(robotNode.transformation.position.x, 3);
+    assert.equal(robotNode.transformation.position.y, 2);
+    assert.equal(robotNode.transformation.position.z, 0);
+
+    // Check:
+    assert.approximately(relative.position.x, 1.58, COORD_PRECISSION);
+    assert.approximately(relative.position.y,3.41, COORD_PRECISSION);
+    assert.approximately(relative.position.z, 0, 0);
+
+    assert.approximately(relative.rotation.x, 0, 0);
+    assert.approximately(relative.rotation.y, 0, 0);
+    assert.approximately(relative.rotation.z, common.AngleUtils.degreesToRadians(50), ROTATION_PRECISSION);
+
+    assert.equal(1, relative.scale.x);
+    assert.equal(1, relative.scale.y);
+    assert.equal(1, relative.scale.z);
+
+
+
+  });
+
 });

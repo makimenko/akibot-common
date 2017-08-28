@@ -6,6 +6,7 @@ class RobotNode extends __1.WorldElement {
         super();
         this.modelFileName = modelFileName;
         this.transformation = transformation;
+        this.devices = [];
     }
 }
 exports.RobotNode = RobotNode;

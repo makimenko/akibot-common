@@ -10,4 +10,7 @@ export class Vector3D extends Dimension3D {
         return "Vector3D" + super.toString();
     }
 
+    public clone(): Vector3D {
+        return new Vector3D(this.x, this.y, this.z);
+    }
 }

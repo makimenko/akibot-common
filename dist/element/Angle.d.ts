@@ -1,7 +1,7 @@
 import { Element } from "../index";
 export declare class Angle extends Element {
-    radians: number | undefined;
-    constructor(radians?: number | undefined);
+    radians: number;
+    constructor(radians: number);
     getDegrees(): number;
     setDegrees(degrees: number): void;
     add(angle: Angle): void;

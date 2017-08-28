@@ -31,11 +31,28 @@ var VectorUtils;
     VectorUtils.rotateLine2D = rotateLine2D;
     function getNorthAngle(vector3d, offsetNorthAngle) {
         var radians = Math.atan2(vector3d.y, vector3d.x);
-        var angle = new __1.Angle();
-        angle.radians = radians;
+        var angle = new __1.Angle(radians);
         angle.add(offsetNorthAngle);
         return angle;
     }
     VectorUtils.getNorthAngle = getNorthAngle;
+    function calculateRelativeTransformation(transA, transB) {
+        if (transA == undefined || transB == undefined) {
+            throw "undefined parameters";
+        }
+        var cumulativeTransformation = transA.clone();
+        var posVector = transB.position;
+        if (transA.rotation.z != 0) {
+            var angle = new __1.Angle(transA.rotation.z);
+            var rotatedVector = VectorUtils.rotate2DVector(posVector, angle);
+            posVector.x = rotatedVector.x;
+            posVector.y = rotatedVector.y;
+            // z axis not supported
+        }
+        cumulativeTransformation.position.add(posVector);
+        cumulativeTransformation.rotation.add(transB.rotation);
+        return cumulativeTransformation;
+    }
+    VectorUtils.calculateRelativeTransformation = calculateRelativeTransformation;
 })(VectorUtils = exports.VectorUtils || (exports.VectorUtils = {}));
 //# sourceMappingURL=VectorUtils.js.map

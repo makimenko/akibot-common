@@ -19,4 +19,8 @@ export class NodeTransformation3D extends WorldElement {
         this.scale.add(nodeTransformation.scale);
     }
 
+    public clone(): NodeTransformation3D {
+        return new NodeTransformation3D(this.position.clone(), this.scale.clone(), this.rotation.clone());
+    }
+
 }
