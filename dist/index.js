@@ -21,6 +21,7 @@ __export(require("./utils/GridUtils"));
 __export(require("./message/Message"));
 __export(require("./message/ValueResponse"));
 __export(require("./message/Command"));
+__export(require("./message/AutoIntervalCommand"));
 __export(require("./message/orientation/OrientationRequest"));
 __export(require("./message/orientation/OrientationResponse"));
 __export(require("./message/gyroscope/GyroscopeAutoIntervalCommand"));
