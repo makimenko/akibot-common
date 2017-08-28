@@ -39,3 +39,4 @@ export * from './world/GridConfiguration';
 export * from './world/GridNode';
 export * from './world/WorldNode';
 export * from './world/RobotNode';
+export * from './world/DeviceNode';
