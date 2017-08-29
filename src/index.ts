@@ -29,6 +29,8 @@ export * from './message/world/WorldContentRequest';
 export * from './message/robot/RobotTransformationEvent';
 export * from './message/distance/DistanceAutoIntervalCommand';
 export * from './message/distance/DistanceValueResponse';
+export * from './message/grid/GridUpdateEvent';
+
 
 export * from './world/WorldElement';
 export * from './world/Material';

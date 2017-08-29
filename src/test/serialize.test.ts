@@ -58,7 +58,7 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.Line3D(new common.Point3D(1, 2, 3), new common.Point3D(4, 5, 6)));
   });
 
-  it("Make sure that all Message are serializable", function () {
+  it("Make sure that all Messages are serializable", function () {
     testSerializeDeserialize(new common.Message());
     testSerializeDeserialize(new common.GyroscopeAutoIntervalCommand(123));
     testSerializeDeserialize(new common.GyroscopeValueResponse(common.AngleUtils.createAngleFromDegrees(7)));
@@ -67,6 +67,8 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.RobotTransformationEvent(new common.NodeTransformation3D(new common.Vector3D(1, 2, 3), new common.Vector3D(4, 5, 6), new common.Vector3D(7, 8, 9))));
     testSerializeDeserialize(new common.DistanceAutoIntervalCommand(1000));
     testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100, new common.Angle(1), false)));
+    testSerializeDeserialize(new common.GridUpdateEvent([[1,2],[3,4]]));
+    
   });
 
   it("Test not serializable ($name is missing)", function () {

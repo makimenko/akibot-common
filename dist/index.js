@@ -31,6 +31,7 @@ __export(require("./message/world/WorldContentRequest"));
 __export(require("./message/robot/RobotTransformationEvent"));
 __export(require("./message/distance/DistanceAutoIntervalCommand"));
 __export(require("./message/distance/DistanceValueResponse"));
+__export(require("./message/grid/GridUpdateEvent"));
 __export(require("./world/WorldElement"));
 __export(require("./world/Material"));
 __export(require("./world/NodeTransformation3D"));
