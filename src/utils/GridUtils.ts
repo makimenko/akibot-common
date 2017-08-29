@@ -20,7 +20,7 @@ export module GridUtils {
             || offsetPoint.x < 0
             || offsetPoint.y >= gridConfiguration.cellCount * gridConfiguration.cellSizeMm
             || offsetPoint.y < 0) {
-            throw "Outside World (point=" + point.toString() + ", offsetPoint=" + offsetPoint.toString() + ")";
+            throw new RangeError("Outside World (point=" + point.toString() + ", offsetPoint=" + offsetPoint.toString() + ")");
         }
         return offsetPoint;
     }
