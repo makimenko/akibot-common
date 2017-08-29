@@ -1,1 +1,0 @@
-{"version":3,"file":"Vector2D.js","sourceRoot":"","sources":["../../../src/element/Vector2D.ts"],"names":[],"mappings":";;AAAA,0BAAiC;AAEjC,cAAsB,SAAQ,eAAW;IAErC,YAAmB,CAAS,EAAE,CAAS;QACnC,KAAK,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC;IAChB,CAAC;IAEM,QAAQ;QACX,MAAM,CAAC,UAAU,GAAG,KAAK,CAAC,QAAQ,EAAE,CAAC;IACzC,CAAC;CAEJ;AAVD,4BAUC"}

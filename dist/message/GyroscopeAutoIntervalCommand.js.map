@@ -1,1 +1,0 @@
-{"version":3,"file":"GyroscopeAutoIntervalCommand.js","sourceRoot":"","sources":["../../src/message/GyroscopeAutoIntervalCommand.ts"],"names":[],"mappings":";;AAAA,0BAA6B;AAE7B,kCAA0C,SAAQ,WAAO;IAErD,YAAmB,QAAiB;QAChC,KAAK,EAAE,CAAC;QADO,aAAQ,GAAR,QAAQ,CAAS;IAEpC,CAAC;CAGJ;AAPD,oEAOC"}

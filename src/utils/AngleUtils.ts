@@ -20,8 +20,6 @@ export module AngleUtils {
     }
 
     export function createNegativeAngle(angle: Angle): Angle {
-        if (angle.radians == undefined)
-            throw "Undefined radians";
         return new Angle(-angle.radians);;
     }
 

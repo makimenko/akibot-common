@@ -21,8 +21,6 @@ var AngleUtils;
     }
     AngleUtils.normalizeRadian = normalizeRadian;
     function createNegativeAngle(angle) {
-        if (angle.radians == undefined)
-            throw "Undefined radians";
         return new __1.Angle(-angle.radians);
         ;
     }

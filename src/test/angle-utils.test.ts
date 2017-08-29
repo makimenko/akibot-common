@@ -6,8 +6,6 @@ describe('Angle Utils', () => {
   it("createAngleFromDegrees", function () {
     var angle = common.AngleUtils.createAngleFromDegrees(90);
     assert.equal(angle.getDegrees(), 90);
-    if (angle.radians == undefined)
-      throw "undefined"
     assert.closeTo(angle.radians, 1.5708, 0.0001);
   });
 

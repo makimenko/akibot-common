@@ -7,16 +7,12 @@ class Angle extends index_1.Element {
         this.radians = radians;
     }
     getDegrees() {
-        if (this.radians == undefined)
-            throw "Undefined radians";
         return index_1.AngleUtils.radiansToDegrees(this.radians);
     }
     setDegrees(degrees) {
         this.radians = index_1.AngleUtils.degreesToRadians(degrees);
     }
     add(angle) {
-        if (this.radians == undefined || angle.radians == undefined)
-            throw "Undefined radians";
         var value = this.radians + angle.radians;
         value = index_1.AngleUtils.normalizeRadian(value);
         this.radians = value;

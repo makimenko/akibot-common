@@ -40,7 +40,7 @@ export module VectorUtils {
 
     export function calculateRelativeTransformation(transA: NodeTransformation3D, transB: NodeTransformation3D): NodeTransformation3D {
         if (transA == undefined || transB == undefined) {
-            throw "undefined parameters";
+            throw new Error("undefined parameters");
         }
         var cumulativeTransformation = transA.clone();
         var posVector: Vector3D = transB.position;

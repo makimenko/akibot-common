@@ -7,8 +7,6 @@ export class Angle extends Element {
     }
 
     public getDegrees(): number {
-        if (this.radians == undefined) 
-            throw "Undefined radians";
         return AngleUtils.radiansToDegrees(this.radians);
     }  
 
@@ -17,8 +15,6 @@ export class Angle extends Element {
     }
 
     public add(angle: Angle): void {
-        if (this.radians == undefined || angle.radians == undefined) 
-            throw "Undefined radians";
         var value = this.radians + angle.radians;
         value = AngleUtils.normalizeRadian(value);
         this.radians = value;
