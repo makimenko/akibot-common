@@ -14,7 +14,6 @@ export * from './element/Line3D';
 export * from './utils/AngleUtils';
 export * from './utils/VectorUtils';
 export * from './utils/SerializationUtils';
-export * from './utils/GridUtils';
 
 export * from './message/Message';
 export * from './message/ValueResponse';

@@ -17,7 +17,6 @@ __export(require("./element/Line3D"));
 __export(require("./utils/AngleUtils"));
 __export(require("./utils/VectorUtils"));
 __export(require("./utils/SerializationUtils"));
-__export(require("./utils/GridUtils"));
 __export(require("./message/Message"));
 __export(require("./message/ValueResponse"));
 __export(require("./message/Command"));

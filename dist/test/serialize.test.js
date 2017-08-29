@@ -93,7 +93,7 @@ describe('Serialization and Deserialization', () => {
         // Serialize:
         var gridConfig = new common.GridConfiguration(2, 10, 1, new common.Vector3D(0, 0, 0));
         var gridNode = new common.GridNode(gridConfig);
-        gridNode.data = common.GridUtils.createGridData(gridConfig.cellCount, gridConfig.unknownValue);
+        gridNode.data = [[-1, -1], [-1, -1]];
         var jsonText = common.SerializationUtils.jsonStringify(gridNode);
         var jsonText2 = JSON.stringify(gridNode);
         var expected = '{"$name":"GridNode","gridConfiguration":{"$name":"GridConfiguration","cellCount":2,"cellSizeMm":10,"maxObstacleCount":1,"offsetVector":{"$name":"Vector3D","x":0,"y":0,"z":0},"unknownValue":-1,"emptyValue":0},"data":[[-1,-1],[-1,-1]]}';
@@ -104,7 +104,6 @@ describe('Serialization and Deserialization', () => {
         testSerializeDeserialize(new common.WorldElement());
         var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
         var gridNode = new common.GridNode(gridConfig);
-        gridNode.data = common.GridUtils.createGridData(2, gridConfig.unknownValue);
         var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
         testSerializeDeserialize(new common.WorldNode(gridNode, robotNode));
         testSerializeDeserialize(new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1)));
