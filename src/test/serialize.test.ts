@@ -67,8 +67,9 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.RobotTransformationEvent(new common.NodeTransformation3D(new common.Vector3D(1, 2, 3), new common.Vector3D(4, 5, 6), new common.Vector3D(7, 8, 9))));
     testSerializeDeserialize(new common.DistanceAutoIntervalCommand(1000));
     testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100, new common.Angle(1), false)));
-    testSerializeDeserialize(new common.GridUpdateEvent([[1,2],[3,4]]));
-    
+    testSerializeDeserialize(new common.GridUpdateEvent([[1, 2], [3, 4]]));
+    testSerializeDeserialize(new common.GyroscopeCalibrationRequest(5000, 500));
+    testSerializeDeserialize(new common.GyroscopeCalibrationResponse(new common.Vector3D(1, 0.000001, -3)));
   });
 
   it("Test not serializable ($name is missing)", function () {
@@ -108,7 +109,7 @@ describe('Serialization and Deserialization', () => {
     // Serialize:
     var gridConfig = new common.GridConfiguration(2, 10, 1, new common.Vector3D(0, 0, 0));
     var gridNode = new common.GridNode(gridConfig);
-    gridNode.data = [[-1,-1],[-1,-1]];
+    gridNode.data = [[-1, -1], [-1, -1]];
 
     var jsonText: string = common.SerializationUtils.jsonStringify(gridNode);
     var jsonText2: string = JSON.stringify(gridNode);
@@ -121,7 +122,7 @@ describe('Serialization and Deserialization', () => {
     testSerializeDeserialize(new common.WorldElement());
     var gridConfig = new common.GridConfiguration(10, 50, 2, new common.Vector3D(0, 1, -1));
     var gridNode = new common.GridNode(gridConfig);
-    
+
     var robotNode = new common.RobotNode("filename.dat", new common.NodeTransformation3D());
     testSerializeDeserialize(new common.WorldNode(gridNode, robotNode));
 
