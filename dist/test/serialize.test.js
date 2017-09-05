@@ -58,6 +58,8 @@ describe('Serialization and Deserialization', () => {
         testSerializeDeserialize(new common.DistanceAutoIntervalCommand(1000));
         testSerializeDeserialize(new common.DistanceValueResponse(new common.Distance(100, new common.Angle(1), false)));
         testSerializeDeserialize(new common.GridUpdateEvent([[1, 2], [3, 4]]));
+        testSerializeDeserialize(new common.GyroscopeCalibrationRequest(5000, 500));
+        testSerializeDeserialize(new common.GyroscopeCalibrationResponse(new common.Vector3D(1, 0.000001, -3)));
     });
     it("Test not serializable ($name is missing)", function () {
         class SampleOfBadClass {

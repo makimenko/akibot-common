@@ -1,0 +1,1 @@
+{"version":3,"file":"GyroscopeCalibrationResponse.js","sourceRoot":"","sources":["../../../src/message/gyroscope/GyroscopeCalibrationResponse.ts"],"names":[],"mappings":";;AAAA,6BAA0C;AAE1C,kCAA0C,SAAQ,WAAO;IAErD,YAAmB,YAAsB;QACrC,KAAK,EAAE,CAAC;QADO,iBAAY,GAAZ,YAAY,CAAU;IAEzC,CAAC;CAEJ;AAND,oEAMC"}

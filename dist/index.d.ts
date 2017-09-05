@@ -21,6 +21,8 @@ export * from './message/orientation/OrientationRequest';
 export * from './message/orientation/OrientationResponse';
 export * from './message/gyroscope/GyroscopeAutoIntervalCommand';
 export * from './message/gyroscope/GyroscopeValueResponse';
+export * from './message/gyroscope/GyroscopeCalibrationRequest';
+export * from './message/gyroscope/GyroscopeCalibrationResponse';
 export * from './message/wheel/WheelCommand';
 export * from './message/world/WorldContentResponse';
 export * from './message/world/WorldContentRequest';
