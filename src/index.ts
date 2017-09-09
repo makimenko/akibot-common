@@ -25,7 +25,7 @@ export * from './message/gyroscope/GyroscopeAutoIntervalCommand';
 export * from './message/gyroscope/GyroscopeValueResponse';
 export * from './message/gyroscope/GyroscopeCalibrationRequest';
 export * from './message/gyroscope/GyroscopeCalibrationResponse';
-export * from './message/wheel/WheelCommand';
+export * from './message/wheel/WheelSetCommand';
 export * from './message/world/WorldContentResponse';
 export * from './message/world/WorldContentRequest';
 export * from './message/robot/RobotTransformationEvent';

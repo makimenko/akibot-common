@@ -1,6 +1,6 @@
 import { Message } from "../..";
 
-export enum WHEEL_DIRECTION {
+export enum WHEEL_SET_DIRECTION {
     Stop,
     Left,
     Right,
@@ -10,7 +10,7 @@ export enum WHEEL_DIRECTION {
 
 export class WheelCommand extends Message {
 
-    constructor(public direction?: WHEEL_DIRECTION) {
+    constructor(public direction: WHEEL_SET_DIRECTION, public pctSpeed?: number, public durationMs?: number) {
         super();
     }
 

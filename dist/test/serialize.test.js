@@ -73,8 +73,8 @@ describe('Serialization and Deserialization', () => {
         chai_1.assert.throws(function () { testSerializeDeserialize(new SampleOfBadClass2()); }, Error);
     });
     it("Test enums", function () {
-        testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Stop));
-        testSerializeDeserialize(new common.WheelCommand(common.WHEEL_DIRECTION.Left));
+        testSerializeDeserialize(new common.WheelCommand(common.WHEEL_SET_DIRECTION.Stop));
+        testSerializeDeserialize(new common.WheelCommand(common.WHEEL_SET_DIRECTION.Left));
     });
     it("Serialize Array", function () {
         var data = [1, 2];

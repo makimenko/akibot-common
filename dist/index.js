@@ -27,7 +27,7 @@ __export(require("./message/gyroscope/GyroscopeAutoIntervalCommand"));
 __export(require("./message/gyroscope/GyroscopeValueResponse"));
 __export(require("./message/gyroscope/GyroscopeCalibrationRequest"));
 __export(require("./message/gyroscope/GyroscopeCalibrationResponse"));
-__export(require("./message/wheel/WheelCommand"));
+__export(require("./message/wheel/WheelSetCommand"));
 __export(require("./message/world/WorldContentResponse"));
 __export(require("./message/world/WorldContentRequest"));
 __export(require("./message/robot/RobotTransformationEvent"));
