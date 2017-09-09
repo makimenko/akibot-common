@@ -6,7 +6,7 @@ export declare enum WHEEL_SET_DIRECTION {
     Forward = 3,
     Backward = 4,
 }
-export declare class WheelCommand extends Message {
+export declare class WheelSetCommand extends Message {
     direction: WHEEL_SET_DIRECTION;
     pctSpeed: number | undefined;
     durationMs: number | undefined;

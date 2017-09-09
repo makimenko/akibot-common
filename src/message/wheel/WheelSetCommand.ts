@@ -8,7 +8,7 @@ export enum WHEEL_SET_DIRECTION {
     Backward
 };
 
-export class WheelCommand extends Message {
+export class WheelSetCommand extends Message {
 
     constructor(public direction: WHEEL_SET_DIRECTION, public pctSpeed?: number, public durationMs?: number) {
         super();

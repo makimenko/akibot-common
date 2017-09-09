@@ -10,7 +10,7 @@ var WHEEL_SET_DIRECTION;
     WHEEL_SET_DIRECTION[WHEEL_SET_DIRECTION["Backward"] = 4] = "Backward";
 })(WHEEL_SET_DIRECTION = exports.WHEEL_SET_DIRECTION || (exports.WHEEL_SET_DIRECTION = {}));
 ;
-class WheelCommand extends __1.Message {
+class WheelSetCommand extends __1.Message {
     constructor(direction, pctSpeed, durationMs) {
         super();
         this.direction = direction;
@@ -18,5 +18,5 @@ class WheelCommand extends __1.Message {
         this.durationMs = durationMs;
     }
 }
-exports.WheelCommand = WheelCommand;
+exports.WheelSetCommand = WheelSetCommand;
 //# sourceMappingURL=WheelSetCommand.js.map

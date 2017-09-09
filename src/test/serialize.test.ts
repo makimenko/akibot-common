@@ -83,8 +83,8 @@ describe('Serialization and Deserialization', () => {
   });
 
   it("Test enums", function () {
-    testSerializeDeserialize(new common.WheelCommand(common.WHEEL_SET_DIRECTION.Stop));
-    testSerializeDeserialize(new common.WheelCommand(common.WHEEL_SET_DIRECTION.Left));
+    testSerializeDeserialize(new common.WheelSetCommand(common.WHEEL_SET_DIRECTION.Stop));
+    testSerializeDeserialize(new common.WheelSetCommand(common.WHEEL_SET_DIRECTION.Left));
   });
 
   it("Serialize Array", function () {
